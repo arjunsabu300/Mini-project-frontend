@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import Sidebars from "../assets/sidebar";
 import Button from '@mui/material/Button';
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { Link} from "react-router-dom"; 
 
@@ -78,7 +78,7 @@ const Stockdetails = () => {
       stock.status,
     ]);
 
-    doc.autoTable({
+    autoTable(doc, { // Use autoTable function
       head: [tableColumn],
       body: tableRows,
       startY: 20,
