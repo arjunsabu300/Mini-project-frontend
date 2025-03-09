@@ -1,0 +1,88 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@700&display=swap');
+
+/* Container styling */
+.addstock-container {
+  width: 50%;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* Heading styling */
+.addstock-container h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #f59e0b);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form styling */
+.addstock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Input fields */
+.addstock-form .MuiTextField-root{
+  width: 85%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.addstock-form .MuiTextField-root .MuiInputBase-root.Mui-focused {
+  transform: scale(1.02);
+}
+
+.selectpremise{
+  width: 60%;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+/* Submit Button */
+.addstock-form .MuiButton-root {
+  width: 50%;
+  margin-top: 20px;
+  background: linear-gradient(to right, #6366f1, #4f46e5);
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.addstock-form .MuiButton-root:hover {
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Message Styling */
+.addstockmessage {
+  color: #e63946;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

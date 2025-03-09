@@ -1,0 +1,241 @@
+/* General Layout */
+.stock-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+/* Sidebar */
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 100px; /* Default space for sidebar */
+}
+
+/* Shift content when sidebar is closed */
+.sktsidebar.closed + .main-content {
+    margin-left: 60px;
+}
+
+/* Header */
+.headerstockdetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* User Menu */
+.user-menu {
+    position: relative;
+}
+
+.user-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 0;
+    top: 30px;
+    width: 120px;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+}
+
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.user-dropdown p:hover {
+    background: rgba(99, 167, 166, 0.404);
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar .search-icon {
+    color: gray;
+    cursor: pointer;
+}
+
+.filter-btn {
+    background: #ddd;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stock Table */
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stock-table th, .stock-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.stock-table th {
+    background: #eaeaea;
+}
+
+/* Status Dropdown */
+.status-dropdown {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.status-dropdown:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.working {
+    background: #b2f7b2;
+    color: #2f7d2f;
+}
+
+.not-working {
+    background: #f7b2b2;
+    color: #7d2f2f;
+}
+
+/* Registration Button */
+.regbtn {
+    background-color: #b2d8e2 !important;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.regbtn:hover {
+    background-color: #8bbec9;
+}
+
+/* New Buttons */
+.newbuttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Date Type */
+.datetype {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Filter Menu */
+.sdfilter-menu {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.sdfilter-menu label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sdfilter-menu select {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Export Buttons */
+.exporttopdfbtn,
+.exporttoexcelbtn {
+    background-color: #b2d8e2 !important;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.exporttopdfbtn:hover,
+.exporttoexcelbtn:hover {
+    background: #8bbec9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stock-container {
+        flex-direction: column;
+    }
+
+    .sktsidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .stock-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

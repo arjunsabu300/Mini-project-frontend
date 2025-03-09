@@ -1,0 +1,45 @@
+.aassidebar {
+    width: 240px;
+    background: #2b4c5a;
+    color: white;
+    padding: 20px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    min-height: 100vh; /* Full height */
+    overflow-y: auto; /* Enables scrolling inside the sidebar */
+}
+
+.aassidebar.closed {
+    width: 60px;
+}
+
+.aasmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.aassidebar .asmenu-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.aassidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.aassidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+ul li a {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 16px; 
+  }
+.aassidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

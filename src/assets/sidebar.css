@@ -1,0 +1,49 @@
+.assidebar {
+    width: 240px;
+    background: #2b4c5a;
+    color: white;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Keeps it fixed on the left */
+    top: 0;
+    left: 0;
+    bottom: 0; /* Ensures it extends to the bottom */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Enables scrolling inside the sidebar */
+}
+
+.assidebar.closed {
+    width: 60px;
+}
+
+.asmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.assidebar .asmenu-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.assidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.assidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+ul li a {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 16px; 
+  }
+.assidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

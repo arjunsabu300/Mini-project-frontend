@@ -1,0 +1,266 @@
+/* General Styling */
+.profilepage{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .profile-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fc;
+  }
+  
+  /* Sidebar */
+  .pssidebar {
+    width: 200px;
+    background: #2b4c5a;
+    color: white;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  .pssidebar.closed {
+    width: 60px;
+}
+.psmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+  .pssidebar ul {
+    
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+  }
+  
+  .pssidebar ul li {
+    margin-bottom: 20px;
+    font-size: 19px;
+    cursor: pointer;
+  }
+  
+  .pssidebar ul li:hover {
+    background: #3b5b6b;
+  }
+
+  .psnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+  /* Profile Content */
+  .profile-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header h2 {
+    color: #333;
+  }
+  
+  .profile-header .psheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .profile-header input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-icon {
+    font-size: 50px;
+    color: #555;
+  }
+  
+  .pssearch {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+}
+  
+.pssearch input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+  
+.pssearch-icon {
+    color: gray;
+}
+
+  .profile-info h3 {
+    margin: 0;
+  }
+  
+  .profile-info p {
+    color: gray;
+  }
+  
+  .edit-btn {
+    margin-left: auto;
+    background-color: #2979ff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #185abc;
+  }
+  
+  /* Form Styling */
+  .profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .psform-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .psform-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .psform-group input,
+  .psform-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: medium;
+  }
+  .designationnanme{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: medium;
+  }
+  
+  .input-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-icon input {
+    flex: 1;
+  }
+  
+  .input-icon svg {
+    margin-left: -30px;
+    color: gray;
+  }
+  
+  /* Email Section */
+  .psemail-section {
+    margin-top: 20px;
+  }
+  
+  .psemail-section h4 {
+    margin-bottom: 5px;
+  }
+  
+  .add-email-btn {
+    background: transparent;
+    color: #2979ff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-email-btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Buttons */
+  .change-password-btn {
+    margin-top: 20px;
+    background-color: #2979ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+  }
+  
+  .change-password-btn:hover {
+    background-color: #185abc;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .profile-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .pssidebar {
+      display: none;
+    }
+  }
+  
+
+  .psform-group textarea{
+    resize: none;
+    width: 90%;
+    height: 38px;
+  }
+
+  .submit-btn-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Aligns vertically */
+    margin-top: 20px; /* Adds some space from above */
+  }
+  
+  .Submiteditbtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 9px;
+  }
+  

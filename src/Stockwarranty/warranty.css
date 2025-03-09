@@ -1,0 +1,209 @@
+/* General Layout */
+.swstocks-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+  
+/* Sidebar */
+
+  
+/* Main Content */
+.swmain-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+}
+  
+/* Header */
+.headerstockwarranty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+  
+.headerstockwarranty h2 {
+    margin: 0;
+}
+  
+.swheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+/* Search Bar */
+.swsearch-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+}
+  
+.swsearch-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+  
+.swsearch-icon {
+    color: gray;
+}
+  
+/* Buttons */
+.swexport-btn, .swnew-item-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.swfilter-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+  
+
+  
+.swnew-item-btn {
+    background: #6a0dad !important;
+    color: white !important;
+}
+  
+/* User Icon */
+.swuser-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Notification Icon */
+.swnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Stock Table */
+.swstock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+  
+.swstock-table th, .swstock-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+  
+.swstock-table th {
+    background: #f1f1f1;
+}
+  
+/* Status Labels */
+.swstatus-label {
+    display: inline-block;  
+    width: 100px;  
+    text-align: center;  
+    padding: 5px 0;  
+    border-radius: 15px;  
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.swwarranty-label {
+    display: inline-block;  
+    width: 100px;  
+    text-align: center;  
+    padding: 5px 0;  
+    border-radius: 15px;  
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.swworking {
+    background: #b2f7b2;
+    color: #2f7d2f;
+}
+  
+.swnot-working {
+    background: #f7b2b2;
+    color: #7d2f2f;
+}
+.swin-warranty{
+    background: rgba(255, 255, 0, 0.755);
+    color: black
+}
+.swout-of-warranty{
+    background: rgba(255, 162, 0, 0.795);
+    color: black;
+}
+/* Filter Menu */
+.swfilter-menu {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    top: 60px;
+    z-index: 10;
+}
+  
+.swfilter-menu label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.swfilter-menu select {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+/* User Dropdown */
+.swuser-menu {
+    position: relative;
+    display: inline-block;
+}
+  
+.swuser-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.swuser-dropdown p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+  
+.swuser-dropdown p:hover {
+    background: #59afbf;
+}
+
+.swbuttons{
+    display: flex;
+    gap: 20px;
+}
+
+.swdatetype{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+

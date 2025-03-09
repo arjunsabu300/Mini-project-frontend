@@ -1,0 +1,95 @@
+.srpcontainer {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .srpsidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+  }
+  
+  .srpmenu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .srpmenu {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .srpmenu li {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .srpcontent {
+    flex-grow: 1;
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  
+  .srpheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .srpheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .srpicon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .srpuser-text {
+    font-weight: bold;
+  }
+  
+  .srpcontainer .action-button {
+    background: #6a0dad !important;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-right: 100px;
+  }
+  
+  .srptable-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .srptable {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+  }
+  
+  .srptable-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .srptable-body {
+    padding: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+  }
+  

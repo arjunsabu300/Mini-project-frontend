@@ -1,0 +1,134 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather';
+  }
+  
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fc;
+  }
+  
+  .register-card {
+    display: flex;
+    background: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 1050px;
+    max-width: 90%;
+    height: 500px;
+  }
+  
+  /* Illustration Section */
+  .illustration {
+    width: 40%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffff;
+    padding: 20px;
+  }
+  
+  .illustration img {
+    max-width: 100%;
+  }
+  
+  /* Form Section */
+  .register-form {
+    width: 60%;
+    padding: 40px;
+  }
+  
+  .register-form h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .register-form p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 48%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .input-full {
+    margin-bottom: 15px;
+  }
+  
+  .input-full input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Button */
+  .btn-submit {
+    width: 100%;
+    background-color: #1d1b38;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #110e4b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .register-card {
+      flex-direction: column;
+      width: 90%;
+    }
+  
+    .illustration {
+      width: 100%;
+      padding: 30px;
+    }
+  
+    .register-form {
+      width: 100%;
+      padding: 30px;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

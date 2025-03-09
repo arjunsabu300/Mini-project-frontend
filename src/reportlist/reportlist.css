@@ -1,0 +1,71 @@
+/* General Styles */
+.pnotidashboard {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.pnotidashboard {
+    display: flex;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+/* Sidebar */
+
+
+
+/* Notification Panel */
+.pnotinotification-panel {
+    flex: 1;
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.pnotinotification-panel h2 {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Notification Items */
+.pnotinotification-item {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+.pnotibtn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.pnotiaccept-btn, .pnotidecline-btn {
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pnotiaccept-btn {
+    background: #27ae60;
+    color: #fff;
+}
+
+.pnotidecline-btn {
+    background: #e74c3c;
+    color: #fff;
+}

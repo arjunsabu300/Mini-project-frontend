@@ -1,0 +1,147 @@
+/* General Page Layout */
+.stocktransfercontainer {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+
+
+/* Main Content */
+.stmain-content {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* Header */
+.headerstocktransfer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+    position: relative; /* Added to ensure dropdown is positioned correctly */
+}
+
+
+.stheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+/* User Menu */
+.stuser-menu {
+    position: relative;
+    
+}
+
+
+
+.stuser-dropdown {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 0;
+    top: 30px;
+    width: 120px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+
+}
+
+.stuser-dropdown {
+    display: block; /* Show on hover */
+}
+.stuser-dropdown p:hover {
+    background: rgba(99, 167, 166, 0.404);
+    cursor: pointer;
+}
+
+
+/* Notification Icon */
+.stnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.stnotification-icon, .stuser-icon, .stsearch-bar {
+    z-index: 999; /* Ensure icons have proper stacking order */
+}
+
+/* Search Bar */
+.stsearch-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stsearch-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.stsearch-bar .stsearch-icon {
+    color: gray;
+    cursor: pointer;
+}
+
+.stfilter-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stock Table */
+.ststock-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+
+.ststock-table th, .ststock-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.ststock-table th {
+    background: #eaeaea;
+}
+
+/* Status Dropdown */
+.premise-dropdown {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+.premise-dropdown:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sttransferbtn Button{
+    border-radius: 19px;
+    box-shadow: none;
+    background-color: #6a0dad;
+    color: white;
+}
+.stfiltermenu{
+    border-radius: 5px;
+    height: 20px;
+    width: 80px;
+}

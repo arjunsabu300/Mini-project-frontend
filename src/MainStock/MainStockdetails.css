@@ -1,0 +1,203 @@
+/* General Layout */
+.sdstocks-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+/* Sidebar */
+.sdsidebar {
+    width: 220px;
+    background: #2b4c5a;
+    color: white;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sdsidebar.closed {
+    width: 60px;
+}
+
+.sdmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sdsidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sdsidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+}
+
+.sdsidebar ul li:hover {
+    background: #3b5b6b;
+}
+
+/* Main Content */
+.sdmain-content {
+    flex: 1;
+    padding: 10px;
+    margin-left: 0px;
+    background: white;
+    overflow-y: auto;
+}
+
+/* Header */
+.sdheaderstockdetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Search Bar */
+.sdsearch-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+    width: 250px;
+}
+
+.sdsearch-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.sdsearch-icon {
+    color: gray;
+}
+
+/* Buttons */
+.sdexport-btn, .sdnew-item-btn, .sdfilter-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.sdfilter-btn {
+    background: #ddd;
+}
+
+.sdexport-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.sdnew-item-btn {
+    background: #6a0dad;
+    color: white;
+}
+
+.sdexport-btn:hover, .sdnew-item-btn:hover, .sdfilter-btn:hover {
+    opacity: 0.8;
+}
+
+/* Stock Table */
+.sdstock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.sdstock-table th, .sdstock-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.sdstock-table th {
+    background: #f1f1f1;
+    font-weight: bold;
+}
+
+.sdstock-table td {
+    background: #fff;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+/* Status Labels */
+.sdstatus-label {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.working {
+    background: #b2f7b2;
+    color: #2f7d2f;
+}
+
+.not-working {
+    background: #f7b2b2;
+    color: #7d2f2f;
+}
+
+/* Sidebar Toggle */
+@media (max-width: 768px) {
+    .sdsidebar {
+        width: 60px;
+        padding: 10px;
+    }
+
+    .sdsidebar.open {
+        width: 200px;
+    }
+
+    .sdsearch-bar {
+        width: 100%;
+    }
+    
+    .sdmain-content {
+        padding: 15px;
+    }
+
+    .sdstock-table th, .sdstock-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

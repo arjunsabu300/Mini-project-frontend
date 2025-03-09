@@ -1,0 +1,199 @@
+/* General Page Layout */
+.stockverificationcontainer {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.vfsidebar {
+    width: 200px;
+    background: #2b4c5a;
+    color: white;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.vfsidebar.closed {
+    width: 60px;
+}
+
+.vfmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.vfsidebar .vfmenu-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.vfsidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.vfsidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+ul li a {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 16px; 
+  }
+
+.vfsidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.vfmain-content {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* Header */
+.headerstockverificaton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+    position: relative; /* Added to ensure dropdown is positioned correctly */
+}
+
+
+.vfheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+/* User Menu */
+.vfuser-menu {
+    position: relative;
+    
+}
+
+.vfuser-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.vfuser-dropdown {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 0;
+    top: 30px;
+    width: 120px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+
+}
+
+.vfuser-dropdown {
+    display: block; /* Show on hover */
+}
+.vfuser-dropdown p:hover {
+    background: rgba(99, 167, 166, 0.404);
+    cursor: pointer;
+}
+
+
+/* Notification Icon */
+.vfnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.vfnotification-icon, .vfuser-icon, .vfsearch-bar {
+    z-index: 999; /* Ensure icons have proper stacking order */
+}
+
+/* Search Bar */
+.vfsearch-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vfsearch-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.vfsearch-bar .vfsearch-icon {
+    color: gray;
+    cursor: pointer;
+}
+
+.vffilter-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stock Table */
+.vfstock-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+
+.vfstock-table th, .vfstock-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.vfstock-table th {
+    background: #eaeaea;
+}
+
+/* Status Dropdown */
+.vfstatus-dropdown {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+.vfstatus-dropdown:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.vfworking {
+    background: #a5d6a7;
+    color: #1b5e20;
+}
+
+.vfnot-working {
+    background: #ffccbc;
+    color: #d32f2f;
+}
+.vffiltermenu{
+    border-radius: 5px;
+    height: 20px;
+    width: 80px;
+}
+.remarkinput{
+    height: 30px;
+    
+}

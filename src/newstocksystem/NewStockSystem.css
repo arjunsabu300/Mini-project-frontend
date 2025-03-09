@@ -1,0 +1,146 @@
+  /* General Styles */
+  .nscontainer {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  /* Sidebar */
+   /* Sidebar */
+   .clsidebar {
+    width: 60px;
+    height:100vh;
+    background: #2b4c5a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: left; */
+    padding: 20px;
+    transition: width 0.3s;
+  }
+  
+  .clsidebar.open {
+    width: 200px;
+  }
+  .clsidebar.closed {
+    width: 100px;
+}
+  
+  .clmenu-icon {
+    font-size: 20px;
+    cursor: pointer;
+    cursor: pointer;
+  }
+  
+  .nssidebar ul {
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+  
+  .nssidebar ul li {
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+  }
+  /* .sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: #34495e;
+  }
+   */
+  /* Main Content */
+  .nsmain-content {
+    margin-left: 220 px; /* Adjust for sidebar width */
+    width: calc(100% - 220px);
+    padding: 20px;
+  }
+  
+  /* Header */
+  .nsheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .nsheader h1 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .search-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+   /* Gradient Title Background */
+  .nsform-title-container {
+    width: 1380px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #c3e0e5, #fdfbdf); /* Match gradient */
+    margin-bottom: 20px;
+  }
+  
+  /* Title Text */
+  .nsform-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(23, 184, 184);
+  }
+  
+  /* Apply Gold Color to 'System' */
+  .nsform-title span {
+    color: #6bd6e9; /* Gold color */
+    font-weight: bold;
+  }
+  
+  /* Input Fields */
+  .input-field {
+    width: 500px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Button */
+  .submit-btn {
+    background-color: #000d33;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #001a66;
+  }

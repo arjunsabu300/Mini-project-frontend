@@ -1,0 +1,187 @@
+/* General Layout */
+.rgstocks-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+  
+/* Sidebar */
+
+/* Main Content */
+.rgmain-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+}
+  
+/* Header */
+.rgheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+  
+.rgheader h2 {
+    margin: 0;
+}
+  
+.rgheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+/* Search Bar */
+.rgsearch-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+}
+  
+.rgsearch-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+  
+.rgsearch-icon {
+    color: gray;
+}
+  
+/* Buttons */
+.sdfilter-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+  
+
+  
+/* User Icon */
+.rguser-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Notification Icon */
+.rgnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Stock Table */
+.rgstock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+  
+.rgstock-table th, .rgstock-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+  
+.rgstock-table th {
+    background: #f1f1f1;
+}
+  
+/* Status Labels */
+.rgstatus-label {
+    display: inline-block;  
+    width: 100px;  
+    text-align: center;  
+    padding: 5px 0;  
+    border-radius: 15px;  
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+  
+.working {
+    background: #b2f7b2;
+    color: #2f7d2f;
+}
+  
+.not-working {
+    background: #f7b2b2;
+    color: #7d2f2f;
+}
+  
+/* Filter Menu */
+.rgfilter-menu {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    top: 60px;
+    z-index: 10;
+}
+  
+.rgfilter-menu label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.rgfilter-menu select {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+/* User Dropdown */
+.rguser-menu {
+    position: relative;
+    display: inline-block;
+}
+  
+.rguser-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.rguser-dropdown p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+  
+.rguser-dropdown p:hover {
+    background: #59afbf;
+}
+
+.newbuttons{
+    display: flex;
+    gap: 20px;
+}
+
+.datetype{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.rgemail{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: rgba(122, 110, 110, 0.693);
+    background-color: rgba(119, 184, 214, 0.327);
+    font-weight: bold;
+}

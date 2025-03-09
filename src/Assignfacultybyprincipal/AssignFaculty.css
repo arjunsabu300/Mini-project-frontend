@@ -1,0 +1,158 @@
+/* Main Container */
+.assignfaculty-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f6fa; /* Light background for the entire container */
+}
+
+/* Sidebar styles */
+.asfmain-content {
+    flex: 1;
+    
+}
+
+/* Header Styles */
+.asfheader {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0; /* Adjust overall padding */
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for header */
+    margin-bottom: 2rem;
+}
+
+.asfheader h2 {
+    
+    font-size: 1.5rem; /* Consistent font size */
+    color: #2d3436; /* Darker text */
+    margin: 0;
+    margin-left: 2%;
+}
+
+/* Header icons */
+.asfheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between icons */
+}
+
+.asfsearch-icon,
+.asfnotification-icon {
+    font-size: 1.2rem;
+    color: #636e72;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.asfsearch-icon:hover,
+.asfnotification-icon:hover {
+    color: #2d3436;
+}
+
+/* Form Container */
+.assignfaculty-form {
+    background: #fff; /* White background for the form */
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    max-width: 600px; /* Form width */
+    margin: 0 auto; /* Center form on page */
+}
+
+/* Form Title */
+.assignfaculty-form h1 {
+    font-size: 1.8rem; /* Larger title */
+    color: #2d3436; /* Dark title color */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600; /* Bold title */
+}
+
+/* Form Elements */
+.assignfaculty-form form {
+    display: flex;
+    flex-direction: column; /* Stack form elements */
+    gap: 1.5rem; /* Spacing between fields */
+}
+
+.assignfaculty-form input,
+.assignfaculty-form select {
+    width: 100%; /* Full width fields */
+    padding: 0.8rem 1.2rem; /* Field padding */
+    border: 2px solid #e0e0e0; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    transition: border-color 0.3s ease; /* Smooth transition on focus */
+}
+
+.assignfaculty-form input:focus,
+.assignfaculty-form select:focus {
+    border-color: #0984e3; /* Blue focus state */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+.assign-btn {
+    background: #0984e3; /* Blue background */
+    padding: 0.8rem; /* Button padding */
+    font-size: 1rem; /* Standard font size */
+    font-weight: 500; /* Medium font weight */
+    letter-spacing: 0.5px; /* Slight letter spacing */
+    transition: transform 0.2s ease, background 0.3s ease; /* Transition effects */
+    color: white; /* White text */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+.assign-btn:hover {
+    background: #0873c4; /* Darker blue on hover */
+    transform: translateY(-1px); /* Raise effect on hover */
+}
+
+/* Message Styling */
+.message {
+    text-align: center; /* Centered text for messages */
+    padding: 0.8rem; /* Padding for messages */
+    border-radius: 6px; /* Rounded corners */
+    margin-bottom: 1.5rem; /* Spacing below messages */
+    font-weight: 500; /* Medium font weight */
+}
+
+.message[data-success="true"] {
+    background: #e3fcef; /* Light green background for success */
+    color: #036c4f; /* Dark green text for success */
+}
+
+.message[data-success="false"] {
+    background: #ffe3e3; /* Light red background for error */
+    color: #cc0f35; /* Dark red text for error */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .asfmain-content {
+        margin-left: 0; /* Remove left margin on smaller screens */
+        padding: 1.5rem; /* Adjust padding */
+    }
+
+    .assignfaculty-form {
+        padding: 1.5rem; /* Adjust form padding */
+        width: 100%; /* Full width on small screens */
+    }
+
+    .asfheader {
+        padding: 1rem; /* Adjust header padding */
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem; /* Space between header items */
+        align-items: flex-start; /* Align items to start */
+    }
+}
+
+@media (max-width: 480px) {
+    .assignfaculty-form input,
+    .assignfaculty-form select {
+        font-size: 0.9rem; /* Smaller font size for inputs */
+        padding: 0.7rem 1rem; /* Adjust padding */
+    }
+}

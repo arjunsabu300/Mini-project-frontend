@@ -1,0 +1,177 @@
+/* General Layout */
+.mhstocks-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+  
+/* Sidebar */
+
+/* Main Content */
+.mhmain-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+        /* margin-left: 250px; 
+        overflow-y: auto;  
+        height: 100vh; */
+}
+  
+/* Header */
+.mhheaderstockdetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+  
+.mhheaderstockdetails h2 {
+    margin: 0;
+}
+  
+.mhheader-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+/* Search Bar */
+.mhsearch-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+}
+  
+.mhsearch-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+  
+.mhsearch-icon {
+    color: gray;
+}
+  
+/* Buttons */
+
+.mhfilter-btn {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+  
+/* User Icon */
+.mhuser-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Notification Icon */
+.mhnotification-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+/* Stock Table */
+.mhstock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+  
+.mhstock-table th, .mhstock-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+  
+.mhstock-table th {
+    background: #f1f1f1;
+}
+  
+/* Status Labels */
+.mhstatus-label {
+    display: inline-block;  
+    width: 100px;  
+    text-align: center;  
+    padding: 5px 0;  
+    border-radius: 15px;  
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+  
+.working {
+    background: #b2f7b2;
+    color: #2f7d2f;
+}
+  
+.not-working {
+    background: #f7b2b2;
+    color: #7d2f2f;
+}
+  
+/* Filter Menu */
+.mhfilter-menu {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    top: 60px;
+    z-index: 10;
+}
+  
+.mhfilter-menu label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.mhfilter-menu select {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+/* User Dropdown */
+.mhuser-menu {
+    position: relative;
+    display: inline-block;
+}
+  
+.mhuser-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.mhuser-dropdown p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+  
+.mhuser-dropdown p:hover {
+    background: #59afbf;
+}
+
+
+.datetype{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
