@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Maintenancelist.css";
+import "./MaintenanceList.css";
 import { FaSearch, FaBell, FaFilter } from "react-icons/fa";
 import AccountMenu from "../assets/Usermenu";
 import { jwtDecode } from "jwt-decode";
