@@ -16,7 +16,7 @@ const MainStockdetails = () => {
   useEffect(() => {
     const fetchStockDetails = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/mainstock");
+        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/mainstock");
         if (!response.ok) throw new Error("Failed to fetch stock details");
         const data = await response.json();
         setStocks(Array.isArray(data) ? data : [data]);

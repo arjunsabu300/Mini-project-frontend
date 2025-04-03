@@ -33,7 +33,7 @@ const Stockstatusupdate = () => {
     const fetchStockDetails = async () => {
       try {
         const token = sessionStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
+        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) throw new Error("Failed to fetch stock details");
@@ -56,7 +56,7 @@ const Stockstatusupdate = () => {
     }
   
     try {
-      const response = await fetch("http://localhost:5000/api/ustock/updateStatus", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/ustock/updateStatus", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

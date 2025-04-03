@@ -40,7 +40,7 @@ const AddStockforward = () => {
 
     if (role.toLowerCase() === "furniture-custodian") {
       axios
-        .get("http://localhost:5000/api/Room/allinventorys")
+        .get("https://mini-project-backend-kjld.onrender.com/api/Room/allinventorys")
         .then((response) => {
           setInventoryList(response.data);
         })
@@ -54,7 +54,7 @@ const AddStockforward = () => {
 
     if (notifId) {
       axios
-        .get(`http://localhost:5000/api/get-stock-details?notifId=${notifId}`)
+        .get(`https://mini-project-backend-kjld.onrender.com/api/get-stock-details?notifId=${notifId}`)
         .then((response) => {
           const data = response.data;
           setFormData((prevState) => ({
@@ -92,7 +92,7 @@ const AddStockforward = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/add-stock-sic",
+        "https://mini-project-backend-kjld.onrender.com/api/add-stock-sic",
         dbData,
         {
           headers: {

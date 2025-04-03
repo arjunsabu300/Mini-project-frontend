@@ -30,7 +30,7 @@ const MaintenanceList = () => {
     const fetchMaintenanceData = async () => {
       try {
         const token = sessionStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/maintenance/list", {
+        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/maintenance/list", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) throw new Error("Failed to fetch maintenance data");
@@ -45,7 +45,7 @@ const MaintenanceList = () => {
 
   const handleFieldUpdate = async (id, field, value) => {
     try {
-      const response = await fetch("http://localhost:5000/api/maintenance/update", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/maintenance/update", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const MaintenanceList = () => {
 
   const handleStatusUpdate = async (id, field, value) => {
     try {
-      const response = await fetch("http://localhost:5000/api/maintenance/complete", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/maintenance/complete", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

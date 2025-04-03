@@ -31,7 +31,7 @@ const UserProfile = () => {
   const handleEditSubmit = async () => {
     setIsEditable(false);
     try {
-      const response = await fetch("http://localhost:5000/api/profile/updateUser", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/profile/updateUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -41,7 +41,7 @@ const Stockverifications = () => {
     if (!token) return;
 
     try {
-      const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -90,7 +90,7 @@ const Stockverifications = () => {
       const updatedVerificationData = [];
 
       for (const stock of stocks) {
-        const stockUpdateResponse = await fetch("http://localhost:5000/api/ustock/updateStatus", {
+        const stockUpdateResponse = await fetch("https://mini-project-backend-kjld.onrender.com/api/ustock/updateStatus", {
           method: "PUT",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify({ item_no: stock.item_no, status: stock.status }),
@@ -112,7 +112,7 @@ const Stockverifications = () => {
 
         updatedVerificationData.push(newVerificationData);
 
-        const verificationResponse = await fetch("http://localhost:5000/api/stockverify/Verification", {
+        const verificationResponse = await fetch("https://mini-project-backend-kjld.onrender.com/api/stockverify/Verification", {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify(newVerificationData),
@@ -129,7 +129,7 @@ const Stockverifications = () => {
       // Sending notification after all updates
       try {
         const verifnotifresponse = await fetch(
-          "http://localhost:5000/api/stockverify/notifverification",
+          "https://mini-project-backend-kjld.onrender.com/api/stockverify/notifverification",
           {
             method: "POST",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },

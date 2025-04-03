@@ -40,7 +40,7 @@ const Reportdetails = () => {
     setRole(decoded.designation);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/report/reportviews",
+        "https://mini-project-backend-kjld.onrender.com/api/report/reportviews",
         { notifId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ const Reportdetails = () => {
 
       // ✅ Fetch approval status separately
       const notificationResponse = await axios.get(
-        `http://localhost:5000/api/getNotification/${notifId}`,
+        `https://mini-project-backend-kjld.onrender.com/api/getNotification/${notifId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -89,7 +89,7 @@ const Reportdetails = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/approvereport",
+        "https://mini-project-backend-kjld.onrender.com/api/approvereport",
         { notifId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

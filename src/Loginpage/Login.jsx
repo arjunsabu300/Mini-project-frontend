@@ -22,7 +22,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/loginauth", { email, password });
+      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/loginauth", { email, password });
       alert(response.data.message);
       
       const token = response.data.token;
@@ -51,7 +51,7 @@ function Login() {
   // Handle Forgot Password: Send OTP
   const handleSendOtp = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/loginauth/send-otp", { email });
+      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/loginauth/send-otp", { email });
       alert(response.data.message);
       setOtpSent(true);
     } catch (error) {
@@ -63,7 +63,7 @@ function Login() {
   const handleVerifyOtp = async () => {
     try {
       console.log("OTP entered:", otp);
-      const response = await axios.post("http://localhost:5000/api/loginauth/verify-otp", { email, otp });
+      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/loginauth/verify-otp", { email, otp });
       alert(response.data.message);
       if (response.data.success) {
         setOtpVerified(true);
@@ -80,7 +80,7 @@ function Login() {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:5000/api/loginauth/reset-password", { email, newPassword });
+      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/loginauth/reset-password", { email, newPassword });
       alert(response.data.message);
       setForgotPassword(false);
       setOtpSent(false);

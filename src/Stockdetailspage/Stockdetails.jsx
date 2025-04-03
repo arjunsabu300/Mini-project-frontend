@@ -45,7 +45,7 @@ const Stockdetails = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
+        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

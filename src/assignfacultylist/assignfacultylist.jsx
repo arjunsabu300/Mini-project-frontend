@@ -44,7 +44,7 @@ const Assignedfacultydetails = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/faculty/facultylist", {
+        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/faculty/facultylist", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

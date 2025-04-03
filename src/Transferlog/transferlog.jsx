@@ -34,7 +34,7 @@ const TransferLogDetails = () => {
   // Fetch Transfer Logs from API
   const fetchTransferLogs = async (token) => {
     try {
-      const response = await axios.get("http://localhost:5000/api/transferlogs", {
+      const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/transferlogs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransferLogs(response.data);

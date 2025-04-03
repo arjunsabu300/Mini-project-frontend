@@ -32,7 +32,7 @@ const Stocktransfer = () => {
   // ✅ Fetch room inventory (Room name + Room No)
   const fetchInventory = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/Room/rooms"); // Updated API route
+      const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/Room/rooms"); // Updated API route
       console.log("Fetched inventory data:", response.data);
       setInventoryList(response.data);
     } catch (error) {
@@ -44,7 +44,7 @@ const Stocktransfer = () => {
   const fetchStockData = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -107,7 +107,7 @@ const Stocktransfer = () => {
 
       console.log("🚀 Sending batch transfer:", JSON.stringify({ transfers, senderEmail }));
 
-      const response = await fetch("http://localhost:5000/api/ststock/transfer", {
+      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/ststock/transfer", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

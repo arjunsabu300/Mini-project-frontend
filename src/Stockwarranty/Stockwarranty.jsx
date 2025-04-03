@@ -29,7 +29,7 @@ const Stockwarranty = () => {
 
     // Fetch stock details from backend
     axios
-      .get("http://localhost:5000/api/stock/warrantydetails", {
+      .get("https://mini-project-backend-kjld.onrender.com/api/stock/warrantydetails", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setStocks(response.data))
