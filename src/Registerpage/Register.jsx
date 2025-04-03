@@ -27,7 +27,7 @@ const Register = () => {
   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/Room/inventory");
+        const response = await axios.get("http://localhost:5000/api/Room/inventory");
         setInventoryList(response.data); // Set inventory data from the backend
       } catch (error) {
         console.error("Error fetching inventory:", error);
@@ -42,7 +42,7 @@ const Register = () => {
       const fetchNotificationData = async () => {
         try {
           const token = sessionStorage.getItem("token"); // Get token
-          const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/Add-account",{ notifId },
+          const response = await axios.post("http://localhost:5000/api/Add-account",{ notifId },
             { headers: { Authorization: `Bearer ${token}` } }
           );
 
@@ -75,7 +75,7 @@ const Register = () => {
     setMessage("");
 
     try {
-      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/register", formData);
+      const response = await axios.post("http://localhost:5000/api/register", formData);
 
       if (response.status === 201) {
         setMessage("✅ Registration successful! You can now log in.");

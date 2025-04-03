@@ -12,7 +12,7 @@ const Stockwarranty = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const [role, setRole] = useState(null);
-
+  const [searchTerm, setSearchTerm] = useState("");
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const toggleFilterMenu = () => setFilterOpen(!filterOpen);
 
@@ -29,13 +29,15 @@ const Stockwarranty = () => {
 
     // Fetch stock details from backend
     axios
-      .get("https://mini-project-backend-kjld.onrender.com/api/stock/warrantydetails", {
+      .get("http://localhost:5000/api/stock/warrantydetails", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setStocks(response.data))
       .catch((error) => console.error("Error fetching stock data:", error));
   }, []);
-
+  const filteredStocks = stocks.filter((stock) =>
+    stock.item_no.toString().includes(searchTerm)
+  );
   return (
     <div className="sdstocks-container">
       <Sidebars sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} role={role} />
@@ -45,17 +47,15 @@ const Stockwarranty = () => {
           <h2>Stock Warranty</h2>
           <div className="swsearch-bar">
             <FaSearch className="swsearch-icon" />
-            <input type="text" placeholder="Search Item ID" />
+                        <input
+                          type="text"
+                          placeholder="Search Item ID"
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                        />
           </div>
-          <input className="swdatetype" type="date" />
-          <button className="swfilter-btn" onClick={toggleFilterMenu}>
-            <FaFilter /> Filter
-          </button>
           <div className="swbuttons">
             <Button variant="contained">Export</Button>
-            <Button variant="contained" className="swnew-item-btn">
-              + New Items
-            </Button>
           </div>
 
           <div className="swheader-icons">
@@ -99,7 +99,7 @@ const Stockwarranty = () => {
             </tr>
           </thead>
           <tbody>
-            {stocks.map((stock, index) => (
+            {filteredStocks.map((stock, index) => (
               <tr key={index}>
                 <td>{stock.item_no}</td>
                 <td>{new Date(stock.date_of_invoice).toLocaleDateString()}</td>

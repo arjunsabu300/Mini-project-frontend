@@ -6,7 +6,6 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Sidebarverifierreport from "../assets/Sidebarverifystock";
 import { jwtDecode } from "jwt-decode";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Stockverifications = () => {
@@ -15,7 +14,6 @@ const Stockverifications = () => {
   const [filterOpen, setFilterOpen] = useState(false);
   const [verifier, setVerifier] = useState({ name: "", email: "" });
   const [role, setRole] = useState(null);
-  const [verifdata, setVerifdata] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,32 +23,50 @@ const Stockverifications = () => {
         const decoded = jwtDecode(token);
         setVerifier({ name: decoded.name, email: decoded.email });
         setRole(decoded.designation);
+
+        // Check for saved progress before fetching fresh data
+        const savedStocks = localStorage.getItem(`savedStocks_${decoded.email}`);
+        if (savedStocks) {
+          setStocks(JSON.parse(savedStocks));
+        } else {
+          fetchStockDetails(token); // Fetch only if no saved progress exists
+        }
       } catch (error) {
         console.error("Invalid Token:", error);
       }
     }
   }, []);
 
-  useEffect(() => {
-    const fetchStockDetails = async () => {
-      const token = sessionStorage.getItem("token");
-      if (!token) return;
+  const fetchStockDetails = async (token) => {
+    if (!token) return;
 
-      try {
-        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+    try {
+      const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-        if (!response.ok) throw new Error("Failed to fetch stock details");
-        const data = await response.json();
+      if (!response.ok) throw new Error("Failed to fetch stock details");
+
+      const data = await response.json();
+
+      // Only set data if no saved progress exists
+      if (!localStorage.getItem(`savedStocks_${verifier.email}`)) {
         setStocks(data);
-      } catch (err) {
-        console.error(err.message);
       }
-    };
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-    fetchStockDetails();
-  }, []);
+  const handleSaveProgress = () => {
+    if (!verifier.email) {
+      alert("No user logged in! Progress cannot be saved.");
+      return;
+    }
+
+    localStorage.setItem(`savedStocks_${verifier.email}`, JSON.stringify(stocks));
+    alert("Progress saved successfully! ✅");
+  };
 
   const handleStatusChange = (index, newStatus) => {
     const updatedStocks = [...stocks];
@@ -59,12 +75,14 @@ const Stockverifications = () => {
   };
 
   const handleSubmit = async () => {
+    const confirmSubmission = window.confirm(
+      "After submission, the account will be deleted. Do you want to proceed?"
+    );
 
-    const confirmSubmission = window.confirm("After submission, the account will be deleted. Do you want to proceed?");
-    
     if (!confirmSubmission) {
-        return; // Exit the function if the user cancels
+      return;
     }
+    
     try {
       const token = sessionStorage.getItem("token");
       if (!token) return;
@@ -72,7 +90,7 @@ const Stockverifications = () => {
       const updatedVerificationData = [];
 
       for (const stock of stocks) {
-        const stockUpdateResponse = await fetch("https://mini-project-backend-kjld.onrender.com/api/ustock/updateStatus", {
+        const stockUpdateResponse = await fetch("http://localhost:5000/api/ustock/updateStatus", {
           method: "PUT",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify({ item_no: stock.item_no, status: stock.status }),
@@ -94,7 +112,7 @@ const Stockverifications = () => {
 
         updatedVerificationData.push(newVerificationData);
 
-        const verificationResponse = await fetch("https://mini-project-backend-kjld.onrender.com/api/stockverify/Verification", {
+        const verificationResponse = await fetch("http://localhost:5000/api/stockverify/Verification", {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
           body: JSON.stringify(newVerificationData),
@@ -105,15 +123,19 @@ const Stockverifications = () => {
         }
       }
 
-      setVerifdata(updatedVerificationData);
+      // Clear saved progress after submission
+      localStorage.removeItem(`savedStocks_${verifier.email}`);
 
       // Sending notification after all updates
       try {
-        const verifnotifresponse = await fetch("https://mini-project-backend-kjld.onrender.com/api/stockverify/notifverification", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-          body: JSON.stringify(updatedVerificationData[0]),
-        });
+        const verifnotifresponse = await fetch(
+          "http://localhost:5000/api/stockverify/notifverification",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+            body: JSON.stringify(updatedVerificationData[0]),
+          }
+        );
 
         if (!verifnotifresponse.ok) throw new Error("Failed to send notification");
 
@@ -124,8 +146,7 @@ const Stockverifications = () => {
     } catch (error) {
       console.error("Error processing stock verification:", error);
     }
-    navigate('/');
-
+    navigate("/");
   };
 
   return (
@@ -145,6 +166,9 @@ const Stockverifications = () => {
           <div className="verifybtn">
             <Button variant="contained" endIcon={<SendIcon />} onClick={handleSubmit}>
               Submit
+            </Button>
+            <Button variant="outlined" color="primary" onClick={handleSaveProgress} style={{ marginLeft: "10px" }}>
+              Save Progress
             </Button>
           </div>
           <div className="vfheader-icons">
@@ -189,24 +213,27 @@ const Stockverifications = () => {
                 <td>{stock.item_name}</td>
                 <td>{stock.description}</td>
                 <td>
-                  <input
-                    className="remarkinput"
-                    type="text"
-                    value={stock.Remarks || ""}
-                    onChange={(e) => {
-                      const updatedStocks = [...stocks];
-                      updatedStocks[index].Remarks = e.target.value;
-                      setStocks(updatedStocks);
-                    }}
-                  />
+                  <input type="text" value={stock.Remarks || ""} onChange={(e) => {
+                    const updatedStocks = [...stocks];
+                    updatedStocks[index].Remarks = e.target.value;
+                    setStocks(updatedStocks);
+                  }} />
                 </td>
                 <td>
-                  <select
-                  className={`vfstatus-dropdown ${
-                    stock.status === "Working" ? "vfworking" : stock.status === "Not Working" ? "vfnot-working" : "vfnot-repairable"
-                  }`}
+                <select
+                    className={`vfstatus-dropdown ${
+                      stock.status === "Working"
+                        ? "vfworking"
+                        : stock.status === "Not Working"
+                        ? "vfnot-working"
+                        : "vfnot-repairable"
+                    }`}
                     value={stock.status}
-                    onChange={(e) => handleStatusChange(index, e.target.value)}
+                    onChange={(e) => {
+                      const updatedStocks = [...stocks];
+                      updatedStocks[index].status = e.target.value;
+                      setStocks(updatedStocks);
+                    }}
                   >
                     <option value="">Select Status</option>
                     <option value="Working">Working</option>

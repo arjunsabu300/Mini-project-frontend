@@ -23,7 +23,7 @@ const HodDash = () => {
                 setUserName(decoded.name);
                 const userEmail = decoded.email;
 
-                const response = await axios.get(`https://mini-project-backend-kjld.onrender.com/api/notifications?receiver=${userEmail}`);
+                const response = await axios.get(`http://localhost:5000/api/notifications?receiver=${userEmail}`);
                 
                 console.log("Dashboard Notifications:", response.data); // Debugging
 

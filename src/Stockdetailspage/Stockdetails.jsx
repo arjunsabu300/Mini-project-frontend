@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import Sidebars from "../assets/sidebar";
 import Button from '@mui/material/Button';
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { Link} from "react-router-dom"; 
 
@@ -45,7 +45,7 @@ const Stockdetails = () => {
       }
 
       try {
-        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stock/stockdetails", {
+        const response = await fetch("http://localhost:5000/api/stock/stockdetails", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -78,7 +78,7 @@ const Stockdetails = () => {
       stock.status,
     ]);
 
-    autoTable(doc, { // Use autoTable function
+    doc.autoTable({
       head: [tableColumn],
       body: tableRows,
       startY: 20,

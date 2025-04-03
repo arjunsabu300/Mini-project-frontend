@@ -21,7 +21,7 @@ const Reportlist = () => {
                 const userEmail = decoded.email;
 
                 // ✅ Fetch notifications
-                const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/fetchreport", {
+                const response = await axios.get("http://localhost:5000/api/fetchreport", {
                     params: { receiver: userEmail },
                     headers: { Authorization: `Bearer ${token}` } // ✅ Include token in request
                 });
@@ -45,7 +45,7 @@ const Reportlist = () => {
             }
             navigate(`/reportverify?notifId=${notifId}`);
             await axios.post(
-                "https://mini-project-backend-kjld.onrender.com/api/report/reportviews",
+                "http://localhost:5000/api/report/reportviews",
                 { notifId },
                 { headers: { Authorization: `Bearer ${token}` } } // ✅ Include token
             );

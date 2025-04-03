@@ -20,7 +20,7 @@ const Notifications = () => {
                 const decoded = jwtDecode(token);
                 const userEmail = decoded.email;
 
-                const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/fetch-notifications", {
+                const response = await axios.get("http://localhost:5000/api/fetch-notifications", {
                     params: { receiver: userEmail },
                     headers: { Authorization: `Bearer ${token}` },
                 });
@@ -54,6 +54,9 @@ const Notifications = () => {
                     if (notif.type === "verifier_report") {
                         return notif.verifier_email && notif.verifier_name && notif.verify_date;
                     }
+                    if (notif.type === "reportapprove") {
+                      return notif.sender && notif.type;
+                  }
                     if (notif.type === "stockhandover") {
                       return notif.room_no && notif.sender;
                       
@@ -85,7 +88,7 @@ const Notifications = () => {
             navigate(`/register?notifId=${notifId}`);
 
             await axios.post(
-                "https://mini-project-backend-kjld.onrender.com/api/Add-account",
+                "http://localhost:5000/api/Add-account",
                 { notifId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -106,7 +109,7 @@ const Notifications = () => {
             }
             navigate(`/reportverify?notifId=${notifId}`);
             await axios.post(
-                "https://mini-project-backend-kjld.onrender.com/api/report/reportviews",
+                "http://localhost:5000/api/report/reportviews",
                 { notifId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -127,7 +130,7 @@ const Notifications = () => {
           }
 
           await axios.post(
-              "https://mini-project-backend-kjld.onrender.com/api/accept-notification",
+              "http://localhost:5000/api/accept-notification",
               { notifId },
               { headers: { Authorization: `Bearer ${token}` } } // ✅ Include token
           );
@@ -148,7 +151,7 @@ const Notifications = () => {
           }
 
           await axios.post(
-              "https://mini-project-backend-kjld.onrender.com/api/reject-notification",
+              "http://localhost:5000/api/reject-notification",
               { notifId },
               { headers: { Authorization: `Bearer ${token}` } } // ✅ Include token
           );
@@ -162,7 +165,7 @@ const Notifications = () => {
 
   const handleMarkRead = async (notifId) => {
       try {
-        await axios.post("https://mini-project-backend-kjld.onrender.com/api/mark-notification-read", {
+        await axios.post("http://localhost:5000/api/mark-notification-read", {
           notifId,
         });
         setNotifications(notifications.filter((n) => n._id !== notifId));
@@ -181,8 +184,8 @@ const Notifications = () => {
   
         const endpoint =
           action === "accept"
-            ? "https://mini-project-backend-kjld.onrender.com/api/accept-notification-h"
-            : "https://mini-project-backend-kjld.onrender.com/api/reject-notification-h";
+            ? "http://localhost:5000/api/accept-notification-h"
+            : "http://localhost:5000/api/reject-notification-h";
   
         await axios.post(
           endpoint,
@@ -206,7 +209,7 @@ const Notifications = () => {
   
         if (action === "accept") {
           axios
-            .post("https://mini-project-backend-kjld.onrender.com/api/create-sicstockaccept", { notifId })
+            .post("http://localhost:5000/api/create-sicstockaccept", { notifId })
             .then((response) => {
               console.log(
                 "✅ SicStockAccept Notification Created:",
@@ -225,7 +228,7 @@ const Notifications = () => {
         } else {
           //this is to reject forwarded stock by hod by SIC even though api call is called hod-reject
           await axios.post(
-            "https://mini-project-backend-kjld.onrender.com/api/hod-reject-notification",
+            "http://localhost:5000/api/hod-reject-notification",
             { notifId },
             { headers: { Authorization: `Bearer ${token}` } }
           );
@@ -251,13 +254,13 @@ const Notifications = () => {
 
           if (type === "stocktransfer") {
               endpoint = action === "accept" 
-                  ? "https://mini-project-backend-kjld.onrender.com/api/accept-stock-transfer"
-                  : "https://mini-project-backend-kjld.onrender.com/api/reject-stock-transfer";
+                  ? "http://localhost:5000/api/accept-stock-transfer"
+                  : "http://localhost:5000/api/reject-stock-transfer";
               payload.item_no = additionalData;
           } else if (type === "stockhandover") {
               endpoint = action === "accept" 
-                  ? "https://mini-project-backend-kjld.onrender.com/api/accept-stock-handover"
-                  : "https://mini-project-backend-kjld.onrender.com/api/reject-stock-handover";
+                  ? "http://localhost:5000/api/accept-stock-handover"
+                  : "http://localhost:5000/api/reject-stock-handover";
               payload.room_no = additionalData;
           }
 
@@ -464,6 +467,24 @@ const Notifications = () => {
                                                 ❌ Reject Transfer
                                             </button>
                                         </div>
+                        </div>
+                      )}
+
+                      {/* new */}
+                      {notif.type === "reportapprove" && (
+                        <div>
+                          <strong>VERIFICATION REPORT APPROVED </strong>
+                          <br />
+                          <strong>Eligible items may be cleared as needed</strong>
+                          <br/>
+                          <strong>From Principal </strong>
+                          <br/>
+                          <button
+                            className="notimark-btn"
+                            onClick={() => handleMarkRead(notif._id)}
+                          >
+                            ✔️
+                          </button>
                         </div>
                       )}
                                  

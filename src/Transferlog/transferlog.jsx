@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import Sidebars from "../assets/sidebar";
 import Button from "@mui/material/Button";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
 
 const TransferLogDetails = () => {
@@ -34,7 +34,7 @@ const TransferLogDetails = () => {
   // Fetch Transfer Logs from API
   const fetchTransferLogs = async (token) => {
     try {
-      const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/transferlogs", {
+      const response = await axios.get("http://localhost:5000/api/transferlogs", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransferLogs(response.data);
@@ -42,11 +42,12 @@ const TransferLogDetails = () => {
       console.error("Error fetching transfer logs:", error);
     }
   };
+  console.log(transferLogs)
 
   // Export to PDF
   const exportToPDF = () => {
-    const doc = new jsPDF();
-    doc.text("Transfer Log Details", 14, 10);
+    const docu = new jsPDF();
+    docu.text("Transfer Log Details", 14, 10);
     const tableColumn = ["Item No", "Sender", "Receiver", "Sender Room", "Receiver Room", "Date"];
     const tableRows = transferLogs.map((log) => [
       log.item_no,
@@ -57,13 +58,13 @@ const TransferLogDetails = () => {
       new Date(log.date).toLocaleDateString(),
     ]);
 
-    doc.autoTable({
+    autoTable(docu, { // Use autoTable function
       head: [tableColumn],
       body: tableRows,
       startY: 20,
     });
 
-    doc.save("Transfer_Log_Details.pdf");
+    docu.save("Transfer_Log_Details.pdf");
   };
 
   // Export to Excel
@@ -100,10 +101,6 @@ const TransferLogDetails = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <input className="datetype" type="date" />
-          <button className="tldfilter-btn" onClick={() => setFilterOpen(!filterOpen)}>
-            <FaFilter /> Filter
-          </button>
 
           <div className="tldexport-buttons">
             <button className="tldexport-btn" onClick={() => setExportOpen(!exportOpen)}>
@@ -144,7 +141,7 @@ const TransferLogDetails = () => {
               </tr>
             ) : (
               transferLogs
-                .filter((log) => log.item_no.toLowerCase().includes(searchTerm.toLowerCase()))
+                .filter((log) => log.item_no && typeof log.item_no === "string" && log.item_no.toLowerCase().includes(searchTerm.toLowerCase()))
                 .map((log, index) => (
                   <tr key={index}>
                     <td>{log.item_no}</td>

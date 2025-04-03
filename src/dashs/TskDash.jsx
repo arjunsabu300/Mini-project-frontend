@@ -40,7 +40,7 @@ const TskDash = () => {
   const fetchNotifications = async (userEmail) => {
     try {
       const response = await axios.get(
-        `https://mini-project-backend-kjld.onrender.com/api/notifications?receiver=${userEmail}`
+        `http://localhost:5000/api/notifications?receiver=${userEmail}`
       );
       setNotifications(response.data);
     } catch (error) {

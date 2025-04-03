@@ -37,7 +37,7 @@ const NewStockSystem = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/rooms", {
+            const response = await fetch("http://localhost:5000/api/rooms", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

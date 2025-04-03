@@ -32,7 +32,7 @@ const Stockclears = () => {
       if (!token) return;
   
       try {
-        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/stockclearance", {
+        const response = await fetch("http://localhost:5000/api/stockclearance", {
           headers: { Authorization: `Bearer ${token}` },
         });
   
@@ -63,7 +63,7 @@ const Stockclears = () => {
     }
 
     try {
-      const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/clear-stock", {
+      const response = await fetch("http://localhost:5000/api/clear-stock", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

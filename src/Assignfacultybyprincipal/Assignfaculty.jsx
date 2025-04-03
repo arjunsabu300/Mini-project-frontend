@@ -39,7 +39,7 @@ const AssignFaculty = () => {
   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/Room/inventory");
+        const response = await axios.get("http://localhost:5000/api/Room/inventory");
         setInventoryList(response.data); // Set inventory data
       } catch (error) {
         console.error("Error fetching inventory:", error);
@@ -60,7 +60,7 @@ const AssignFaculty = () => {
     setMessage("");
   const token = sessionStorage.getItem("token");
     try {
-        const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/assign-faculty",formData,
+        const response = await axios.post("http://localhost:5000/api/assign-faculty",formData,
         {
                 headers: {Authorization: `Bearer ${token}`,},
             }

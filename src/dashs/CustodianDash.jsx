@@ -38,7 +38,7 @@ const CustodianDash = () => {
                         setusername(decoded.name);
                         const userEmail = decoded.email;
         
-                        const response = await axios.get(`https://mini-project-backend-kjld.onrender.com/api/notifications?receiver=${userEmail}`);
+                        const response = await axios.get(`http://localhost:5000/api/notifications?receiver=${userEmail}`);
                         
                         console.log("Dashboard Notifications:", response.data); // Debugging
         
@@ -154,7 +154,7 @@ const HandoverPopup = ({ open, onClose, navigate }) => {
 
             console.log("🚀 Initiating handover for:", senderEmail);
 
-            const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/handover", {
+            const response = await fetch("http://localhost:5000/api/handover", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,

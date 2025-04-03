@@ -48,7 +48,7 @@ const ForwardStockTsk = () => {
 
     try {
       const response = await axios.post(
-        "https://mini-project-backend-kjld.onrender.com/api/forward-stock-tsk",
+        "http://localhost:5000/api/forward-stock-tsk",
         dbData,
         {
           headers: {

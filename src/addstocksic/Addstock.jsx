@@ -46,7 +46,7 @@ const AddStocksic = () => {
       useEffect(() => {
         const fetchInventory = async () => {
           try {
-            const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/Room/allinventorys");
+            const response = await axios.get("http://localhost:5000/api/Room/allinventorys");
             setInventoryList(response.data); // Set inventory data from the backend
           } catch (error) {
             console.error("Error fetching inventory:", error);
@@ -69,7 +69,7 @@ const AddStocksic = () => {
 
         try {
             const response = await axios.post(
-                'https://mini-project-backend-kjld.onrender.com/api/add-stock-sic', 
+                'http://localhost:5000/api/add-stock-sic', 
                 dbData, 
                 {
                     headers: {

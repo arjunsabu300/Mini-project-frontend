@@ -40,7 +40,7 @@ const RegisterComplaint = () => {
       }
 
       try {
-        const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/complaints/registercomplaint", {
+        const response = await axios.get("http://localhost:5000/api/complaints/registercomplaint", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const filteredData = Array.isArray(response.data)
@@ -90,7 +90,7 @@ const RegisterComplaint = () => {
     setLoading(true);
     try {
       console.log("🚀 Sending complaintData:", complaintData);
-      const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/complaints/sendcomplaint",complaintData,
+      const response = await axios.post("http://localhost:5000/api/complaints/sendcomplaint",complaintData,
       {
         headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}`  },
       });

@@ -39,7 +39,7 @@ const Maintenancehistorydetails = () => {
       }
 
       try {
-        const response = await fetch("https://mini-project-backend-kjld.onrender.com/api/maintenance/maintenancehistory", {
+        const response = await fetch("http://localhost:5000/api/maintenance/maintenancehistory", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

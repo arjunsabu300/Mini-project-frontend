@@ -27,7 +27,7 @@ const ForwardStockHOD = () => {
     useEffect(() => {
         const fetchAvailableStock = async () => {
             try {
-                const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/fetch-stock");
+                const response = await axios.get("http://localhost:5000/api/fetch-stock");
                 console.log("Fetched stock data:", response.data);
                 if (response.data.length > 0) {
                     const stockData = response.data[0];
@@ -57,7 +57,7 @@ const ForwardStockHOD = () => {
     useEffect(() => {
         const fetchInventory = async () => {
             try {
-                const response = await axios.get("https://mini-project-backend-kjld.onrender.com/api/fetch-premises");
+                const response = await axios.get("http://localhost:5000/api/fetch-premises");
                 setInventoryList(response.data);
             } catch (error) {
                 console.error("Error fetching inventory:", error);
@@ -93,7 +93,7 @@ const ForwardStockHOD = () => {
         }
 
         try {
-            const response = await axios.post("https://mini-project-backend-kjld.onrender.com/api/forward-stock-hod", updatedStock);
+            const response = await axios.post("http://localhost:5000/api/forward-stock-hod", updatedStock);
             alert("Stock Forwarded Successfully!");
             navigate('/Hoddash');
         } catch (error) {
