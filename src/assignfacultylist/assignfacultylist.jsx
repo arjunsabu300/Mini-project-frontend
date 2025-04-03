@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import Sidebarprincipalreport from "../assets/sidebarreport";
 import Button from '@mui/material/Button';
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { Link} from "react-router-dom"; 
 import axios from "axios";
@@ -79,7 +79,7 @@ const Assignedfacultydetails = () => {
       new Date(faculty.verified_date).toLocaleDateString("en-GB"),
     ]);
 
-    doc.autoTable({
+    autoTable(doc,{
       head: [tableColumn],
       body: tableRows,
       startY: 20,
